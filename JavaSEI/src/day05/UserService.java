@@ -3,7 +3,7 @@ package day05;
 import java.util.*;
 
 /**
- * ÓÃ»§ÒµÎñÂß¼­Àà
+ * ç”¨æˆ·ä¸šåŠ¡é€»è¾‘ç±»
  * @author sunddenly
  * 
  *
@@ -11,45 +11,45 @@ import java.util.*;
 public class UserService {
 	Map<String,User> users = new HashMap<String,User>();
 	/**
-	 * µÇÂ¼·½·¨
+	 * ç™»å½•æ–¹æ³•å‘æŒ¥å‘æŒ¥
 	 * @param username
 	 * @param password
 	 * @return 
 	 */
 	public User login(String username,String password){
 		/**
-		 * ¸ù¾İÓÃ»§ÊäÈëµÄÓÃ»§Ãû²éÑ¯users
+		 * æ ¹æ®ç”¨æˆ·è¾“å…¥çš„ç”¨æˆ·åæŸ¥è¯¢users
 		 */
 		User user=users.get(username);
-		//²é¿´mapÖĞÊÇ·ñÓĞÕâ¸öÓÃ»§
+		//æŸ¥çœ‹mapä¸­æ˜¯å¦æœ‰è¿™ä¸ªç”¨æˆ·
 		if(user==null){
-			throw new RuntimeException("Ã»ÓĞ¸ÃÓÃ»§£¡");
+			throw new RuntimeException("æ²¡æœ‰è¯¥ç”¨æˆ·ï¼");
 		}
 		/**
-		 * ÈôÃ»ÓĞ¸ÃÓÃ»§£¬ÄÇÃ´¾ÍÅĞ¶ÏÓÃ»§ÊäÈëµÄÃÜÂëºÍUser¶ÔÏóÖĞ±£
-		 * ´æµÄ¸ÄÓÃ»§ÃÜÂëÊÇ·ñÒ»ÖÂ
+		 * è‹¥æ²¡æœ‰è¯¥ç”¨æˆ·ï¼Œé‚£ä¹ˆå°±åˆ¤æ–­ç”¨æˆ·è¾“å…¥çš„å¯†ç å’ŒUserå¯¹è±¡ä¸­ä¿
+		 * å­˜çš„æ”¹ç”¨æˆ·å¯†ç æ˜¯å¦ä¸€è‡´
 		 */
 		if(!user.getPassword().equals(password)){
-			throw new RuntimeException("ÃÜÂëÊäÈë´íÎó");
+			throw new RuntimeException("å¯†ç è¾“å…¥é”™è¯¯");
 		}
-		//ÓÃ»§ÃûÓëÃÜÂë¾ùÕıÈ·£¬·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
+		//ç”¨æˆ·åä¸å¯†ç å‡æ­£ç¡®ï¼Œè¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
 		return user;
 	}
 	public static void main(String[] args){
 		UserService service = new UserService(); 
 		/**
-		 * ´æÈë¼¸¸öÄ£ÄâÊı¾İ
+		 * å­˜å…¥å‡ ä¸ªæ¨¡æ‹Ÿæ•°æ®
 		 */
 		service.users.put("Xiloer",new User("Xiloer","1234"));
 		service.users.put("Tom",new User("Tom","12345"));
 		service.users.put("Jerry",new User("Jerry","123456"));
 		service.users.put("Kulli",new User("Kulli","1457"));
 		/**
-		 *²âÊÔµÇÂ½
+		 *æµ‹è¯•ç™»é™†
 		 */
 		//service.login("ABC", "1234");
 		User user = service.login("Jerry", "123456");
-		System.out.println(user.getUsername()+"µÇÂ½³É¹¦");
+		System.out.println(user.getUsername()+"ç™»é™†æˆåŠŸ");
 		
 
 	}
