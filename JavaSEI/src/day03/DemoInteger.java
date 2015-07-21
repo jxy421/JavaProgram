@@ -1,7 +1,7 @@
 package day03;
 
 public class DemoInteger {
-	public static void main(String[] args) {
+	public static void   main(String[] args) {
 		DemoInteger demo = new DemoInteger();
 		say(demo);
 		int a=1;
