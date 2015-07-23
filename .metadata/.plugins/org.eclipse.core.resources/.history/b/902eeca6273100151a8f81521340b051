@@ -1,0 +1,5 @@
+package thread.daemon;
+
+public class DaemonThread {
+
+}

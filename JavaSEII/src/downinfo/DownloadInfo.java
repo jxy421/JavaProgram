@@ -1,4 +1,7 @@
 package downinfo;
+
+import java.io.Serializable;
+
 /**
  * 保存一个下载任务所需的信息
  * @author sunddenly
@@ -6,10 +9,13 @@ package downinfo;
  * 作用： 保存一组数据
  * 若这组数据表示的是数据库中的一条数据的话
  * 那么这个对象叫做：Entity 实体
+ * 
+ * 通过实现Serializable接口来标识该类可序列化
  */
-public class DownloadInfo {
+public class DownloadInfo implements Serializable{
+	private static final long serialVersionUID = 1l;
 	private String url;     //下载文件的地址
-	private long pos;       //已经下载的字节数
+	private transient long pos;       //已经下载的字节数
 	private long fileSize;  //文件大小
 	private String fileName; //保存在本地的文件名
 	public DownloadInfo(String url, String fileName) {
