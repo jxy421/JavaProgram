@@ -1,0 +1,13 @@
+package thread.thread;
+/**
+ *	Ïß³Ì
+ * @author sunddenly
+ *
+ */
+public class MyFirstThread extends Thread {
+	public void run(){
+		for(int i=0;i<100000;i++){
+			System.out.println(i);
+		}
+	}
+}

@@ -1,0 +1,45 @@
+package thread.safe;
+
+import thread.safe.Bank.Person;
+
+/**
+ * 多线程并发安全
+ * @author sunddenly
+ *
+ */
+public class TestThreadSafe {
+	public static void main(String[] args) {
+		Bank bank = new Bank();
+		/**
+		 * 内部类的实例化方式
+		 */
+		Person p1 = bank.new Person();
+		Person p2 = bank.new Person();
+		Person p3 = bank.new Person();
+		p1.start();
+		p2.start();
+		p3.start();
+	}
+}
+class Bank{
+	int count  = 10000;
+	void getMoney(int money){
+		if(count==0){
+			throw new RuntimeException("余额为0");
+		}
+//		if(count<money){
+//			throw new  RuntimeException("余额不足");
+//		}
+		count-=money;
+	}
+	class Person extends Thread{
+		public void run(){
+			while(true){
+				getMoney(300);
+				System.out.println("当前余额："+count);
+				//Thread.yield();
+			}
+		}
+	}
+}
+

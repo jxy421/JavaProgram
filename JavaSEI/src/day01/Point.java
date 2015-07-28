@@ -1,7 +1,7 @@
 package day01;
 
 /**
- * @author hdoop
+ * @author sunddenly
  * 
  */
 public class Point {
